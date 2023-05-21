@@ -1,4 +1,4 @@
-# Основы Python 2 02/04/2023
+# Основы Python 2 02/05/2023
 # TODO - отличие списков от кортежей
 # TODO - задачки
 # TODO - условный оператор if
@@ -207,13 +207,19 @@
 # for i in population:
 #      print(f'Население города{i[0]} - {i[1]} человек')
 
+# Основы Python 3. 04.05.23
+# TODO -  Функции и параметры
+# TODO -  Модули и импорт
+# TODO -  Примеры применения внешних модулей 
+
+
 # Однострочники
 
-employees = {'Alice' : 100000,
-    'Bob' : 99817,
-    'Carol' : 122908,
-    'Frank' : 88123,
-    'Eve' : 93121}
+# employees = {'Alice' : 100000,
+#     'Bob' : 99817,
+#     'Carol' : 122908,
+#     'Frank' : 88123,
+#     'Eve' : 93121}
 
 # # Вариант 1
 # top_mgrs = []
@@ -225,8 +231,8 @@ employees = {'Alice' : 100000,
 
 # Вариант 2 однострочник 
 
-top_mgrs = [i for i in employees if employees[i] >= 100000]
-print(top_mgrs)
+# top_mgrs = [i for i in employees if employees[i] >= 100000]
+# print(top_mgrs)
 
 # if
 
@@ -249,3 +255,116 @@ print(top_mgrs)
 # # print(capitals['Россия'])
 # capitals['Италия'] = 'Рим'
 # print(capitals)
+
+# Функция - блок кода, который можно вызывать с разными параметрами
+# DRY - don't repeat yourself
+
+# Пример функции 
+# Внутри функции передаем параметры
+# Создание функции
+# def greeting(n):
+#     print('Привет', n)
+
+
+# # Вызов функции
+# names = ['Марк', 'Мария', 'Семен']
+# for i in names:
+#     greeting(i)
+
+
+# employees = {'Alice' : 100000,
+#     'Bob' : 99817,
+#     'Carol' : 122908,
+#     'Frank' : 88123,
+#     'Eve' : 93121}
+
+# # Решение
+# def get_top_mgrs(empl: dict) -> list:
+#     '''get_top_mgrs принимает словарь сотрудников и возвращает список сотрудников,
+#     у которых зарплата больше 100 000'''
+#     # top_mgrs = []
+#     # for i in emp1:
+#     #     if emp1[i] >= 100000:
+#     #         top_mgrs.append(i)
+
+#     return [i for i in empl if empl[i] >= 100000]
+
+# salary = [employees[i]*2 for i in get_top_mgrs(employees)]
+# print(salary)
+
+# Задача
+# Даны целые положительные числа a и b
+# Определите результат целочисленного деления a и b, с помощью цикла while,
+# НЕ используя стандартную операцию целочисленного деления (//, %)
+# Формат вывода:
+# Целочисленное деление XXX на YYY дает ZZZ
+
+# a, b = 179, 37
+
+# def divine (a, b=1):
+# # (a: int, b: int) -> int:
+# #     '''divine делит a на b'''
+#     counter = -1
+#     temp = a
+#     while temp >= 0:
+#         temp -= b
+#         counter += 1
+    
+#     return(counter)
+
+# # print(divine(a, b))
+# print(divine(200))
+
+# def trapezoid_s(a, b, h):
+#     '''Функøиā длā расùета плоûади трапеøии. a - нижнее основание, b - верхнее основание, h - вýсота.'''
+    
+#     return h * (a+b) / 2
+
+# S = trapezoid_s(8, b=4, h=10)
+# print(S)
+
+
+# print(1, 2, 3, sep='\n')
+
+# def print_them_all(*args, **kwargs):
+# # kwargs - распаковка кортежа
+#     for i, e in enumerate(args):
+#         print(i,e)
+    
+#     for k, v in kwargs.items():
+#         print(k,v)
+
+# print_them_all(1, 2, 'AAA', 4, 5, a=1, b=False)
+
+# 04.05 = Модуль
+# Модуль - файл с расширением .py
+# Импорт - вызов имени функции, класса или переменной 
+# Пакет - это папка, которая содержит модули и файл __init.py__
+# библиотека - набор пакетов
+
+# import my_module
+
+# import main as mm
+# # import pandas as pd
+# # import numpy as np
+
+# from main import foo
+# from ex_module import var_2, foo
+# from my_package.subpackage import foo_3
+# # from telebot import bot
+# # from pprint import pprint
+
+# var_1 = 10000
+# print(var_2)
+
+# # foo()
+# mm.foo()
+# # print(mm.var_1)
+
+import random
+
+ids = range(1000, 9999)
+print(random.sample(ids, 5)) # без дублей
+print(random.choices(ids, k=5))
+
+print(random.randint(0, len(ids)))
